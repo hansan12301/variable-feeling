@@ -1,5 +1,5 @@
 async function analyze(text) {
-    const response = await fetch("http://127.0.0.1:5000/analyze", {
+    const response = await fetch("https://variable-feeling.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text })
