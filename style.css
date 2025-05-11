@@ -1,0 +1,33 @@
+*       {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "dunkel-sans-variable", sans-serif;
+    font-variation-settings: "GLAT" 0, "wdth" 1000;
+    text-align: center;
+    transition: all 0.5s ease;
+    transform: translateZ(0);
+}
+
+div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p   {
+    font-size: 72px;
+}
+
+p::-webkit-scrollbar {
+    display: none;
+}
+
+p:focus {
+    outline: none;
+}
+
+h1  {
+    font-size: 20px;
+}
