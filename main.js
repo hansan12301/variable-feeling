@@ -1,5 +1,4 @@
-// Hugging Face API 토큰
-const value = "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"; // Read-only Token
+const API_KEY = config.apikey;
 
 // 감정 분석 요청 함수 (Hugging Face API 호출)
 async function analyze(text) {
@@ -8,7 +7,7 @@ async function analyze(text) {
     {
         method: "POST",
         headers: {
-            "Authorization": `Bearer ${value}`,
+            "Authorization": `Bearer ${API_KEY}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ inputs: text })
