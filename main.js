@@ -1,5 +1,5 @@
 // Hugging Face API 토큰
-const value = "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"; // Read-only Token
+const value = "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"; // Read-only Token
 
 // 감정 분석 요청 함수 (Hugging Face API 호출)
 async function analyze(text) {
