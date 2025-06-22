@@ -48,13 +48,34 @@ function applyTypography(emotion) {
         "Neutral": "#9e9e9e",       // 회색
         "Negative": "#d32f2f",      // 빨강
         "Very Negative": "#b71c1c", // 진한 빨강
-        "알 수 없음": "#000000"     // 검정
+        "알 수 없음": "#000000"
+    };
+
+    const emotionStyleMap = {
+        "Very Positive": { wdth: 900, glat: 1000 },
+        "Positive":      { wdth: 800, glat: 500 },
+        "Neutral":       { wdth: 850, glat: 500 },
+        "Negative":      { wdth: 1000, glat: 300 },
+        "Very Negative": { wdth: 1000, glat: 0 },
+        "알 수 없음":     { wdth: 1000, glat: 500 }
     };
 
     const color = emotionColors[emotion] || "#000000";
+    const style = emotionStyleMap[emotion] || emotionStyleMap["알 수 없음"];
+    const fontSettings = `"wdth" ${style.wdth}, "GLAT" ${style.glat}`;
 
+    // 스타일 적용
     el.style.color = color;
-    el.style.fontVariationSettings = `"GLAT" 700, "wdth" 900`;
+    el.style.fontVariationSettings = fontSettings;
+
+    // class 초기화 후 reflow → class 재적용
+    el.classList.remove(...el.classList);
+    void el.offsetWidth;
+    el.classList.add(`emotion-${emotion}`);
+
+    // 감정 텍스트를 h1에 출력
+    const labelEl = document.querySelector(".label h1");
+    labelEl.textContent = `${emotion}`;
 
     console.log(`감정: ${emotion}`);
 }
