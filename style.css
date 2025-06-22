@@ -1,4 +1,4 @@
-*       {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,13 +10,21 @@
 }
 
 div {
-    height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-p   {
+.label  {
+    height: 45vh;
+    align-items: flex-end;
+}
+
+.textContainer  {
+    height: 55vh;
+    align-items: flex-start; 
+}
+
+p {
     font-size: 72px;
 }
 
@@ -28,6 +36,114 @@ p:focus {
     outline: none;
 }
 
-h1  {
-    font-size: 20px;
+h1 {
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+
+@keyframes slam {
+    0% {
+        transform: scale(0.8) rotate(-2deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05) rotate(1deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes floatDown {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes bigBounce {
+    0% {
+        transform: scale(0.8) translateY(0);
+    }
+
+    30% {
+        transform: scale(1.2) translateY(-20px);
+    }
+
+    60% {
+        transform: scale(1.05) translateY(10px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes shakeX {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-8px);
+    }
+
+    40% {
+        transform: translateX(8px);
+    }
+
+    60% {
+        transform: translateX(-6px);
+    }
+
+    80% {
+        transform: translateX(6px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* 감정별 애니메이션 매핑 */
+.emotion-기쁨 {
+    animation: bigBounce 0.8s ease-out forwards;
+}
+
+.emotion-분노,
+.emotion-긍정 {
+    animation: floatUp 0.5s ease-out forwards;
+}
+
+.emotion-불안,
+.emotion-당황 {
+    animation: shakeX 0.6s ease-in-out forwards;
+}
+
+.emotion-부정 {
+    animation: floatDown 1s ease-in-out forwards;
+}
+
+.emotion-슬픔 {
+    animation: floatDown 1s ease-in-out forwards;
+    opacity: 0.6;
+    filter: blur(1px);
 }
