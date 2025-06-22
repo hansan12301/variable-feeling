@@ -41,109 +41,47 @@ h1 {
     margin-bottom: 32px;
 }
 
-@keyframes slam {
-    0% {
-        transform: scale(0.8) rotate(-2deg);
-        opacity: 0;
-    }
-
-    50% {
-        transform: scale(1.05) rotate(1deg);
-        opacity: 1;
-    }
-
-    100% {
-        transform: scale(1) rotate(0deg);
-    }
+/* 기쁨: 튀어오르는 듯한 움직임 */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px) scale(1.05); }
+}
+.emotion-Very\ Positive {
+  animation: bounce 0.6s ease-out;
 }
 
-@keyframes floatUp {
-    0% {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+/* 긍정: 부드러운 확대 */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.03); }
+}
+.emotion-Positive {
+  animation: pulse 0.6s ease-in-out;
 }
 
-@keyframes floatDown {
-    0% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(10px);
-    }
+/* 중립: 미세한 흔들림 */
+@keyframes neutral-wiggle {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(1px); }
+}
+.emotion-Neutral {
+  animation: neutral-wiggle 0.4s ease-in-out;
 }
 
-@keyframes bigBounce {
-    0% {
-        transform: scale(0.8) translateY(0);
-    }
-
-    30% {
-        transform: scale(1.2) translateY(-20px);
-    }
-
-    60% {
-        transform: scale(1.05) translateY(10px);
-    }
-
-    100% {
-        transform: scale(1) translateY(0);
-    }
+/* 부정: 작아지며 흔들림 */
+@keyframes shrinkshake {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(0.95) rotate(-1deg); }
+}
+.emotion-Negative {
+  animation: shrinkshake 0.5s ease-in-out;
 }
 
-@keyframes shakeX {
-    0% {
-        transform: translateX(0);
-    }
-
-    20% {
-        transform: translateX(-8px);
-    }
-
-    40% {
-        transform: translateX(8px);
-    }
-
-    60% {
-        transform: translateX(-6px);
-    }
-
-    80% {
-        transform: translateX(6px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
+/* 매우 부정: 아래로 가라앉기 */
+@keyframes sink {
+  0%   { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0.8; }
 }
-
-/* 감정별 애니메이션 매핑 */
-.emotion-기쁨 {
-    animation: bigBounce 0.8s ease-out forwards;
-}
-
-.emotion-분노,
-.emotion-긍정 {
-    animation: floatUp 0.5s ease-out forwards;
-}
-
-.emotion-불안,
-.emotion-당황 {
-    animation: shakeX 0.6s ease-in-out forwards;
-}
-
-.emotion-부정 {
-    animation: floatDown 1s ease-in-out forwards;
-}
-
-.emotion-슬픔 {
-    animation: floatDown 1s ease-in-out forwards;
-    opacity: 0.6;
-    filter: blur(1px);
+.emotion-Very\ Negative {
+  animation: sink 0.6s ease-out;
 }
