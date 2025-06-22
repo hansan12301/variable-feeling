@@ -1,5 +1,5 @@
 // Hugging Face API 토큰
-const value = "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"; // Read-only Token
+const value = "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"; // Read-only Token
 
 // 감정 분석 요청 함수 (Hugging Face API 호출)
 async function analyze(text) {
@@ -68,10 +68,12 @@ function applyTypography(emotion) {
     el.style.color = color;
     el.style.fontVariationSettings = fontSettings;
 
-    // class 초기화 후 reflow → class 재적용
+    const safeClassName = `emotion-${emotion.replace(/\s/g, '-')}`;
+
+    // class 초기화 후 reflow 트리거 → class 재적용
     el.classList.remove(...el.classList);
     void el.offsetWidth;
-    el.classList.add(`emotion-${emotion}`);
+    el.classList.add(safeClassName);
 
     // 감정 텍스트를 h1에 출력
     const labelEl = document.querySelector(".label h1");
