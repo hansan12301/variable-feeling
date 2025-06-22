@@ -1,2 +1,18 @@
 #API KEY
 config.js
+
+# 가상환경 제외
+venv/
+__pycache__/
+
+# 모델 및 무거운 파일 제외
+models/
+onnx_export/
+flask-backend/
+
+# 백업 및 임시 파일 제외
+*.zip
+*.log
+
+# 기타 제외할 파일
+flask-backend/weights/
